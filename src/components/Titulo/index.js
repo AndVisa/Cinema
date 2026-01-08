@@ -1,4 +1,3 @@
-import { Children } from 'react';
 import styles from './Titulo.module.css';
 
 function Titulo ({ children }) {

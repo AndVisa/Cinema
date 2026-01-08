@@ -1,13 +1,19 @@
 import Card from "components/Card";
 import videos from "data/db.json";
 import styles from "./index.module.css";
+import Banner from "components/Banner";
+import Titulo from "components/Titulo";
 
-function Inicio(){
-    return(
+function Inicio() {
+    return (
         <>
+            <Banner img="home" color="#154580" />
+            <Titulo>
+                <h1>Un lugar para guardar sus videos favoritos </h1>
+            </Titulo>
             <section className={styles.container}>
-                {videos.map((video)=> {
-                    return <Card {...video} key={video.id}/>
+                {videos.map((video) => {
+                    return <Card {...video} key={video.id} />
                 })}
             </section>
         </>
