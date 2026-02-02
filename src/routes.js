@@ -3,6 +3,7 @@ import Pie from "components/Pie";
 import FavoritosProvider from "context/Favoritos";
 import Container from "components/Container";
 import Favoritos from "pages/Favoritos";
+import Player from "pages/Player";
 
 const { default: Inicio } = require("pages/Inicio");
 const { BrowserRouter, Routes, Route } = require("react-router-dom");
@@ -16,6 +17,7 @@ function AppRoutes() {
                 <Routes>
                     <Route path="/" element={<Inicio />}></Route>
                     <Route path="/Favoritos" element={<Favoritos />}></Route>
+                    <Route path="/:id" element={<Player />}></Route>
                 </Routes>
                 </FavoritosProvider>
             </Container>
