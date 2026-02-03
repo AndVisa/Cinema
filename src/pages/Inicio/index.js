@@ -1,10 +1,18 @@
 import Card from "components/Card";
-import videos from "data/db.json";
 import styles from "./index.module.css";
 import Banner from "components/Banner";
 import Titulo from "components/Titulo";
+import { useEffect, useState } from "react";
 
 function Inicio() {
+    const [videos, setVideos] = useState([]);
+    useEffect(() => {
+        fetch("https://my-json-server.typicode.com/AndVisa/Cinema-API/videos")
+            .then((response) => response.json())
+            .then((data) => {
+                setVideos(data);
+            });
+    }, []);
     return (
         <>
             <Banner img="home" color="#154580" />
