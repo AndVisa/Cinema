@@ -2,12 +2,20 @@ import Banner from 'components/Banner';
 import styles from './Player.module.css';
 import Titulo from 'components/Titulo';
 import { useParams } from 'react-router-dom';
-import videos from "data/db.json"; 
 import NotFound from 'pages/NotFound';
+import { useEffect, useState } from 'react';
 
 function Player() {
+    const [video, setVideos] = useState([]);
     const parametros = useParams();
-    const video = videos.find(video => video.id === Number(parametros.id))
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/AndVisa/Cinema-API/videos?id=${parametros.id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setVideos(...data);
+            });
+    }, []);
+    // const video = videos.find(video => video.id === Number(parametros.id))
     console.log(video);
     if (!video) return <NotFound />;
 
